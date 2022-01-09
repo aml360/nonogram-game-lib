@@ -1,13 +1,12 @@
-
 export type NonoArray = boolean[][];
 
-export function arrayGenerator(lines: number, columns: number) {
+export function arrayGenerator(lines: number, columns: number): NonoArray {
   const miArray = [];
 
   for (let i = 0; i < lines; i++) {
     const columnas = [];
     for (let j = 0; j < columns; j++) {
-      const booleano = generarBoolean();
+      const booleano = rndBool();
       columnas.push(booleano);
     }
 
@@ -17,15 +16,11 @@ export function arrayGenerator(lines: number, columns: number) {
   return miArray;
 }
 
-export function generarBoolean() {
-  if (Math.random() <= 0.5) {
-    return false;
-  } else {
-    return true;
-  }
+function rndBool(): boolean {
+  return Math.random() <= 0.5 ? false : true;
 }
 
-export function contabilizador(arrayDatos: boolean[]):number[] {
+function contabilizador(arrayDatos: boolean[]): number[] {
   const chunk: number[] = [];
   let contador = 0;
   for (const element of arrayDatos) {
@@ -44,6 +39,7 @@ export function contabilizador(arrayDatos: boolean[]):number[] {
   return chunk;
 }
 
+// TODO: Change function name
 export function distribuidor(arrayGenerado: NonoArray) {
   const distribuidorArr = [];
 
@@ -54,8 +50,9 @@ export function distribuidor(arrayGenerado: NonoArray) {
   return distribuidorArr;
 }
 
-export function distribuidorLineas(arrayGenerado: NonoArray) {
-  const numerosLineas = [];
+// TODO: Change function name
+function distribuidorLineas(arrayGenerado: NonoArray): number[][] {
+  const numerosLineas: number[][] = [];
   for (const element of arrayGenerado) {
     const linea = contabilizador(element);
     numerosLineas.push(linea);
@@ -63,12 +60,12 @@ export function distribuidorLineas(arrayGenerado: NonoArray) {
   return numerosLineas;
 }
 
-export function distribuidorColumnas(arrayGenerado: NonoArray) {
-  const numerosColumnas = [];
+// TODO: Change function name
+function distribuidorColumnas(arrayGenerado: NonoArray): number[][] {
+  const numerosColumnas: number[][] = [];
 
   for (let i = 0; i < arrayGenerado[0].length; i++) {
     const numeroColumna = [];
-
     for (let j = 0; j < arrayGenerado.length; j++) {
       const element = arrayGenerado[j][i];
       numeroColumna.push(element);
@@ -80,6 +77,7 @@ export function distribuidorColumnas(arrayGenerado: NonoArray) {
   return numerosColumnas;
 }
 
+// TODO: Add tsdoc
 export function isGameCompleted(gameArr: NonoArray, gameSolution: NonoArray) {
   if (gameArr.length !== gameSolution.length) {
     throw new Error('Numero filas distinto');
@@ -104,4 +102,3 @@ export function isGameCompleted(gameArr: NonoArray, gameSolution: NonoArray) {
   }
   return isCompleted;
 }
-

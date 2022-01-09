@@ -1,0 +1,30 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "removeComments": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "Node",
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "sharedInterfaces/*": ["../sharedCode/interfaces/*"],
+      "sharedCode/*": ["../sharedCode/*"],
+      "services/*": ["./src/app/services/*"]
+    }
+  },
+  "exclude": ["dist/*"]
+}
